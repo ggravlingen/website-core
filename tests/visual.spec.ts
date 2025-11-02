@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import { expect, test } from '@playwright/test'
 
 // Test all pages with snapshot testing
@@ -5,6 +8,22 @@ const pages = [
   { path: '/', name: 'Home' },
   { path: '/open-source-projects', name: 'Open Source Projects' },
 ]
+
+function getSnapshotPath(pageName: string, variant: 'light' | 'dark') {
+  const projectName = test.info().project?.name ?? 'unknown-project'
+  const isMobile = /mobile|ipad|iphone/i.test(projectName)
+  const group = isMobile ? 'mobile' : 'desktop'
+  const device = projectName.replace(/-desktop|-mobile/i, '')
+
+  const snapshotRoot = path.resolve(process.cwd(), 'test-results', 'snapshots')
+  const deviceDir = path.join(snapshotRoot, group, device)
+  fs.mkdirSync(deviceDir, { recursive: true })
+
+  return path.join(
+    deviceDir,
+    `${pageName.toLowerCase().replace(/\s+/g, '-')}-${variant}.png`
+  )
+}
 
 for (const page of pages) {
   test.describe(`${page.name} Page`, () => {
@@ -14,13 +33,24 @@ for (const page of pages) {
       // Wait for page to be fully loaded
       await pw.waitForLoadState('networkidle')
 
-      // Take full page screenshot
-      await expect(pw).toHaveScreenshot(
-        `${page.name.toLowerCase().replace(/\s+/g, '-')}-light.png`,
-        {
-          fullPage: true,
-        }
+      // Compute snapshot path: group by desktop/mobile then device name
+      const projectName = test.info().project?.name ?? 'unknown-project'
+      const isMobile = /mobile|ipad|iphone/i.test(projectName)
+      const group = isMobile ? 'mobile' : 'desktop'
+      const device = projectName.replace(/-desktop|-mobile/i, '')
+
+      const snapshotRoot = path.resolve(
+        process.cwd(),
+        'test-results',
+        'snapshots'
       )
+      const deviceDir = path.join(snapshotRoot, group, device)
+      fs.mkdirSync(deviceDir, { recursive: true })
+
+      const snapshotPath = getSnapshotPath(page.name, 'light')
+
+      // Take full page screenshot
+      await expect(pw).toHaveScreenshot(snapshotPath, { fullPage: true })
     })
 
     test('should match visual snapshot in dark mode', async ({ page: pw }) => {
@@ -59,13 +89,24 @@ for (const page of pages) {
       // Wait a bit for the theme transition
       await pw.waitForTimeout(500)
 
-      // Take full page screenshot
-      await expect(pw).toHaveScreenshot(
-        `${page.name.toLowerCase().replace(/\s+/g, '-')}-dark.png`,
-        {
-          fullPage: true,
-        }
+      // Compute snapshot path: group by desktop/mobile then device name
+      const projectName = test.info().project?.name ?? 'unknown-project'
+      const isMobile = /mobile|ipad|iphone/i.test(projectName)
+      const group = isMobile ? 'mobile' : 'desktop'
+      const device = projectName.replace(/-desktop|-mobile/i, '')
+
+      const snapshotRoot = path.resolve(
+        process.cwd(),
+        'test-results',
+        'snapshots'
       )
+      const deviceDir = path.join(snapshotRoot, group, device)
+      fs.mkdirSync(deviceDir, { recursive: true })
+
+      const snapshotPath = getSnapshotPath(page.name, 'dark')
+
+      // Take full page screenshot
+      await expect(pw).toHaveScreenshot(snapshotPath, { fullPage: true })
     })
   })
 }
