@@ -49,6 +49,10 @@ export default defineConfig({
       name: 'webkit-mobile',
       use: { ...devices['iPhone 12'] },
     },
+    {
+      name: 'webkit-ipad',
+      use: { ...devices['iPad (gen 7)'] },
+    },
   ],
 
   /* Run your local dev server before starting the tests */
