@@ -1,4 +1,4 @@
-# Website Core
+# Regtech Partners
 
 A React application built with Vite, Material-UI, and React Router for fast development and modern UI components.
 

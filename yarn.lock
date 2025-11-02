@@ -4205,6 +4205,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regtech-partners@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "regtech-partners@workspace:."
+  dependencies:
+    "@emotion/react": "npm:^11.14.0"
+    "@emotion/styled": "npm:^11.14.1"
+    "@eslint/js": "npm:^9.39.0"
+    "@mui/icons-material": "npm:^7.3.4"
+    "@mui/material": "npm:^7.3.4"
+    "@playwright/test": "npm:^1.56.1"
+    "@types/node": "npm:^24.9.2"
+    "@types/react": "npm:^19.2.2"
+    "@types/react-dom": "npm:^19.2.2"
+    "@typescript-eslint/eslint-plugin": "npm:^8.46.2"
+    "@typescript-eslint/parser": "npm:^8.46.2"
+    "@vitejs/plugin-react": "npm:^5.1.0"
+    eslint: "npm:^9.39.0"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-import: "npm:^2.32.0"
+    eslint-plugin-jsx-a11y: "npm:^6.10.2"
+    eslint-plugin-prettier: "npm:^5.5.4"
+    eslint-plugin-react: "npm:^7.33.2"
+    eslint-plugin-react-hooks: "npm:^7.0.1"
+    eslint-plugin-react-refresh: "npm:^0.4.5"
+    globals: "npm:^16.5.0"
+    prettier: "npm:^3.6.2"
+    react: "npm:^19.2.0"
+    react-dom: "npm:^19.2.0"
+    react-router-dom: "npm:^7.9.5"
+    typescript: "npm:^5.9.3"
+    vite: "npm:^7.1.12"
+  languageName: unknown
+  linkType: soft
+
 "resolve-from@npm:^4.0.0":
   version: 4.0.0
   resolution: "resolve-from@npm:4.0.0"
@@ -5025,40 +5059,6 @@ __metadata:
   checksum: cef4d4b4a84e663e09b858964af36e916892ac8540068df42a05ced637ceeae5e9ef71c72d54f3cfc1f3c254af16634230e221b6e2327c2a66d794bb49203262
   languageName: node
   linkType: hard
-
-"website-core@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "website-core@workspace:."
-  dependencies:
-    "@emotion/react": "npm:^11.14.0"
-    "@emotion/styled": "npm:^11.14.1"
-    "@eslint/js": "npm:^9.39.0"
-    "@mui/icons-material": "npm:^7.3.4"
-    "@mui/material": "npm:^7.3.4"
-    "@playwright/test": "npm:^1.56.1"
-    "@types/node": "npm:^24.9.2"
-    "@types/react": "npm:^19.2.2"
-    "@types/react-dom": "npm:^19.2.2"
-    "@typescript-eslint/eslint-plugin": "npm:^8.46.2"
-    "@typescript-eslint/parser": "npm:^8.46.2"
-    "@vitejs/plugin-react": "npm:^5.1.0"
-    eslint: "npm:^9.39.0"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-plugin-import: "npm:^2.32.0"
-    eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-prettier: "npm:^5.5.4"
-    eslint-plugin-react: "npm:^7.33.2"
-    eslint-plugin-react-hooks: "npm:^7.0.1"
-    eslint-plugin-react-refresh: "npm:^0.4.5"
-    globals: "npm:^16.5.0"
-    prettier: "npm:^3.6.2"
-    react: "npm:^19.2.0"
-    react-dom: "npm:^19.2.0"
-    react-router-dom: "npm:^7.9.5"
-    typescript: "npm:^5.9.3"
-    vite: "npm:^7.1.12"
-  languageName: unknown
-  linkType: soft
 
 "which-boxed-primitive@npm:^1.1.0, which-boxed-primitive@npm:^1.1.1":
   version: 1.1.1
