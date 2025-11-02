@@ -30,7 +30,6 @@ This is a React application built with Vite, Material-UI, and React Router. It f
 1. `yarn format` - Format code with Prettier
 2. `yarn type-check` - Run TypeScript type checking
 3. `yarn lint:fix` - Run ESLint with automatic fixes
-4. `yarn dev` - Ensure the application builds successfully
 
 These commands ensure code quality, consistency, and that changes don't break the build or visual appearance. All commands must pass before considering a change complete.
 

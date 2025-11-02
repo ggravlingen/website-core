@@ -30,7 +30,7 @@
       }
     }
   },
-  "forwardPorts": [3000, 5173, 4173],
+  "forwardPorts": [3000, 5173, 4173, 9323],
   "portsAttributes": {
     "3000": {
       "label": "React App",
@@ -42,6 +42,10 @@
     },
     "4173": {
       "label": "Vite Preview",
+      "onAutoForward": "notify"
+    },
+    "9323": {
+      "label": "Playwright Viewer",
       "onAutoForward": "notify"
     }
   },

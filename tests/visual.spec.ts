@@ -29,11 +29,32 @@ for (const page of pages) {
       // Wait for page to be fully loaded
       await pw.waitForLoadState('networkidle')
 
-      // Toggle to dark mode by clicking the dark mode button
+      // If a hamburger menu is present (mobile) open it so the theme toggle
+      // is available in the Drawer. We check existence rather than viewport
+      // size because some device configs may not expose viewportSize().
+      const menuButton = pw.locator('[aria-label="Open navigation menu"]')
+      const menuOpened = (await menuButton.count()) > 0
+      if (menuOpened) {
+        await menuButton.click()
+        // Wait for drawer animation
+        await pw.waitForTimeout(250)
+      }
+
+      // Toggle to dark mode by clicking the dark mode button (in top bar or Drawer)
       const darkModeButton = pw.locator(
         '[title*="dark mode" i], [title*="light mode" i]'
       )
       await darkModeButton.click()
+
+      // If we opened the menu, wait for the Drawer to close so the page
+      // snapshot won't capture the open Drawer overlay.
+      if (menuOpened) {
+        const drawer = pw.locator('[role="presentation"]')
+        await drawer.waitFor({ state: 'detached', timeout: 2000 }).catch(() =>
+          // fallback small wait if waiter times out
+          pw.waitForTimeout(300)
+        )
+      }
 
       // Wait a bit for the theme transition
       await pw.waitForTimeout(500)
