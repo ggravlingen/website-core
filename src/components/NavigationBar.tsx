@@ -61,6 +61,13 @@ const NavigationBar = () => {
     <AppBar position="static">
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Button
+            color="inherit"
+            onClick={() => handleNavigation('/')}
+            sx={{ fontWeight: 700, textTransform: 'none' }}
+          >
+            Regutch Partners
+          </Button>
           {/* Show hamburger on small screens */}
           {!isMdUp && (
             <IconButton

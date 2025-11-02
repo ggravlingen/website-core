@@ -12,7 +12,7 @@ const Home = () => {
           Home Page
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Welcome to our website! Navigate using the menu above.
+          Welcome to Regtech Partners! Navigate using the menu above.
         </Typography>
       </Paper>
     </Container>
